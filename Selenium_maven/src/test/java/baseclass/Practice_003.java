@@ -1,6 +1,7 @@
 package baseclass;
 
 import java.awt.Frame;
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -65,6 +66,50 @@ System.out.println("selected date is :-"+date_dropdown.getAttribute("value"));
 
  // book now
  driver.findElement(By.xpath("(//button[text()='Book Now'])[1]")).click();
+	try {
+		take_screenshot("book now");
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	// scroll page
+	scroll_page(300);
+	// locate gender
+	driver.findElement(By.xpath("(//li[text()='Female'])[1]")).click();
+	//send full name
+	driver.findElement(By.xpath("//input[@id='adult_add_fullname']")).sendKeys("Nikhita Dalal");
+	// age 
+	driver.findElement(By.xpath("//input[@class='inputText ageinput']")).sendKeys("21");
+	//berth
+	driver.findElement(By.xpath("//input[@id='adult_add_berth']"));
+	// save
+	driver.findElement(By.xpath("//button[text()=' Save ']"));
+	try {
+		take_screenshot("details");
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	scroll_page(200);
+	//email
+	driver.findElement(By.xpath("//input[@id='user_email']")).sendKeys("nikhitadalal85@gmail.com");
+	//phone no
+	driver.findElement(By.xpath("//input[@name='phone_no']")).sendKeys("3263653564");
+	//irctc user id 
+	driver.findElement(By.xpath("//input[@id='no_call_irctc']")).sendKeys("maheshkhere11");
+	// verify
+	driver.findElement(By.xpath("//button[@id='verifyIdBtn']")).click();
+
+	try {
+		take_screenshot("verify");
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	//continue
+	driver.findElement(By.xpath("//div[text()='Continue ']")).click();
+	
+	
 	
 
 
